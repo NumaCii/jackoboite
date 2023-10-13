@@ -12,10 +12,7 @@ class SoundAdapter: RecyclerView.Adapter<SoundAdapter.SoundHolder>() {
     class SoundHolder(itemView : View): RecyclerView.ViewHolder(itemView) {
         val name: TextView = itemView.findViewById(R.id.sound_name)
         val image: ImageView = itemView.findViewById(R.id.sound_image)
-        //fun bind(sound : Sound) {
-            //name.text = sound.name
-            //image.setImageResource(sound.image)
-        //}
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SoundHolder {
@@ -24,7 +21,12 @@ class SoundAdapter: RecyclerView.Adapter<SoundAdapter.SoundHolder>() {
     }
 
     override fun onBindViewHolder(holder: SoundHolder, position: Int) {
+        val sound = list.get(position)
+        holder.itemView.tag = sound.id
+
+
         holder.image.setOnClickListener {
+            val id = view.tag as Int
 
         }
         holder.name.text = "Sound"
